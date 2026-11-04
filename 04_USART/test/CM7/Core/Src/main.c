@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,6 +72,57 @@ static void MPU_Config(void);
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
+#define UART_RX_BUFFER_SIZE 100U
+
+/* DMA RX buffer must be in DMA-accessible SRAM (AXI SRAM 0x24000000).
+   DTCM (0x20000000) is CPU-only, DMA1 cannot access it. */
+__attribute__((section(".dma_buffer"), aligned(32)))
+uint8_t Rx_data[UART_RX_BUFFER_SIZE];
+
+static void UART1_StartReceive(void)
+{
+  if (HAL_UARTEx_ReceiveToIdle_DMA(&huart1, Rx_data, UART_RX_BUFFER_SIZE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  __HAL_DMA_DISABLE_IT(huart1.hdmarx, DMA_IT_HT);
+}
+
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+  static const uint8_t msg_on[]  = "LED ON\r\n";
+  static const uint8_t msg_off[] = "LED OFF\r\n";
+
+  if (huart->Instance == USART1)
+  {
+    if (Size >= UART_RX_BUFFER_SIZE)
+    {
+      Size = UART_RX_BUFFER_SIZE - 1U;
+    }
+    Rx_data[Size] = 0;   /* terminate string for strstr() */
+
+    if (strstr((char *)Rx_data, "LED ON") != NULL)
+    {
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
+      HAL_UART_Transmit_DMA(&huart1, (uint8_t *)msg_on, sizeof(msg_on) - 1U);
+    }
+    else if (strstr((char *)Rx_data, "LED OFF") != NULL)
+    {
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_SET);
+      HAL_UART_Transmit_DMA(&huart1, (uint8_t *)msg_off, sizeof(msg_off) - 1U);
+    }
+  }
+
+  UART1_StartReceive();   /* re-arm, otherwise only the 1st frame is received */
+}
+
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1)
+  {
+    UART1_StartReceive();
+  }
+}
 
 /**
   * @brief  The application entry point.
@@ -151,12 +203,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   // HAL_UART_Receive_IT(&huart1, &Rx_Data, 1);
 
+  UART1_StartReceive();
+  HAL_UART_Transmit_DMA(&huart1, (uint8_t *)"hello\r\n", 7);
+
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_UART_Transmit_DMA(&huart1, "hello", 1);
   }
   /* USER CODE END 3 */
 }
@@ -248,6 +302,21 @@ void MPU_Config(void)
   MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
+  /* Region 1: AXI SRAM (0x24000000, 512KB) normal, non-cacheable, shareable -> for DMA */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.BaseAddress = 0x24000000;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_512KB;
+  MPU_InitStruct.SubRegionDisable = 0x0;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
   /* Enables the MPU */
   HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
 

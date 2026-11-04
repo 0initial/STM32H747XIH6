@@ -41,6 +41,7 @@ MEMORY
 FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 1024K
 RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 128K
 ITCMRAM (xrw)      : ORIGIN = 0x00000000, LENGTH = 64K
+RAM_D1 (xrw)       : ORIGIN = 0x24000000, LENGTH = 512K
 }
 /* Highest address of the user mode stack */
 _estack = 0x20020000;    /* end of RAM */
@@ -208,6 +209,14 @@ SECTIONS
   PROVIDE( __bss_size = __bss_end - __bss_start );
 
 
+  /* DMA buffer must live in DMA-accessible SRAM (AXI SRAM), never in DTCM */
+  .dma_buffer (NOLOAD) :
+  {
+    . = ALIGN(32);
+    *(.dma_buffer)
+    *(.dma_buffer*)
+    . = ALIGN(32);
+  } >RAM_D1
   /* User_heap_stack section, used to check that there is enough RAM left */
   ._user_heap_stack (NOLOAD) :
   {
