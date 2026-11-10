@@ -1,0 +1,276 @@
+ARM GAS  C:\Users\31414\AppData\Local\Temp\cc75cheM.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-d16
+   4              		.eabi_attribute 28, 1
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.file	"wwdg.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.file 1 "../../CM7/Core/Src/wwdg.c"
+  19              		.section	.text.MX_WWDG1_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	MX_WWDG1_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_WWDG1_Init:
+  27              	.LFB146:
+   1:../../CM7/Core/Src/wwdg.c **** /* USER CODE BEGIN Header */
+   2:../../CM7/Core/Src/wwdg.c **** /**
+   3:../../CM7/Core/Src/wwdg.c ****   ******************************************************************************
+   4:../../CM7/Core/Src/wwdg.c ****   * @file    wwdg.c
+   5:../../CM7/Core/Src/wwdg.c ****   * @brief   This file provides code for the configuration
+   6:../../CM7/Core/Src/wwdg.c ****   *          of the WWDG instances.
+   7:../../CM7/Core/Src/wwdg.c ****   ******************************************************************************
+   8:../../CM7/Core/Src/wwdg.c ****   * @attention
+   9:../../CM7/Core/Src/wwdg.c ****   *
+  10:../../CM7/Core/Src/wwdg.c ****   * Copyright (c) 2026 STMicroelectronics.
+  11:../../CM7/Core/Src/wwdg.c ****   * All rights reserved.
+  12:../../CM7/Core/Src/wwdg.c ****   *
+  13:../../CM7/Core/Src/wwdg.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:../../CM7/Core/Src/wwdg.c ****   * in the root directory of this software component.
+  15:../../CM7/Core/Src/wwdg.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:../../CM7/Core/Src/wwdg.c ****   *
+  17:../../CM7/Core/Src/wwdg.c ****   ******************************************************************************
+  18:../../CM7/Core/Src/wwdg.c ****   */
+  19:../../CM7/Core/Src/wwdg.c **** /* USER CODE END Header */
+  20:../../CM7/Core/Src/wwdg.c **** /* Includes ------------------------------------------------------------------*/
+  21:../../CM7/Core/Src/wwdg.c **** #include "wwdg.h"
+  22:../../CM7/Core/Src/wwdg.c **** 
+  23:../../CM7/Core/Src/wwdg.c **** /* USER CODE BEGIN 0 */
+  24:../../CM7/Core/Src/wwdg.c **** 
+  25:../../CM7/Core/Src/wwdg.c **** /* USER CODE END 0 */
+  26:../../CM7/Core/Src/wwdg.c **** 
+  27:../../CM7/Core/Src/wwdg.c **** WWDG_HandleTypeDef hwwdg1;
+  28:../../CM7/Core/Src/wwdg.c **** 
+  29:../../CM7/Core/Src/wwdg.c **** /* WWDG1 init function */
+  30:../../CM7/Core/Src/wwdg.c **** void MX_WWDG1_Init(void)
+  31:../../CM7/Core/Src/wwdg.c **** {
+ARM GAS  C:\Users\31414\AppData\Local\Temp\cc75cheM.s 			page 2
+
+
+  28              		.loc 1 31 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  32:../../CM7/Core/Src/wwdg.c **** 
+  33:../../CM7/Core/Src/wwdg.c ****   /* USER CODE BEGIN WWDG1_Init 0 */
+  34:../../CM7/Core/Src/wwdg.c **** 
+  35:../../CM7/Core/Src/wwdg.c ****   /* USER CODE END WWDG1_Init 0 */
+  36:../../CM7/Core/Src/wwdg.c **** 
+  37:../../CM7/Core/Src/wwdg.c ****   /* USER CODE BEGIN WWDG1_Init 1 */
+  38:../../CM7/Core/Src/wwdg.c **** 
+  39:../../CM7/Core/Src/wwdg.c ****   /* USER CODE END WWDG1_Init 1 */
+  40:../../CM7/Core/Src/wwdg.c ****   hwwdg1.Instance = WWDG1;
+  37              		.loc 1 40 3 view .LVU1
+  38              		.loc 1 40 19 is_stmt 0 view .LVU2
+  39 0002 0C48     		ldr	r0, .L5
+  40 0004 0C4B     		ldr	r3, .L5+4
+  41 0006 0360     		str	r3, [r0]
+  41:../../CM7/Core/Src/wwdg.c ****   /* PCLK3 = 120 MHz, prescaler 128 -> 1 tick = 4096*128/120MHz = 4.369 ms.
+  42:../../CM7/Core/Src/wwdg.c ****      Counter MUST be 0x41..0x7F: 0x40 underflows to 0x3F in ONE tick and resets at once.
+  43:../../CM7/Core/Src/wwdg.c ****      0x7F -> 64 ticks -> max 279.6 ms; window 0x68 -> refresh allowed after 23 ticks = 100.5 ms. */
+  44:../../CM7/Core/Src/wwdg.c ****   hwwdg1.Init.Prescaler = WWDG_PRESCALER_128;
+  42              		.loc 1 44 3 is_stmt 1 view .LVU3
+  43              		.loc 1 44 25 is_stmt 0 view .LVU4
+  44 0008 4FF46053 		mov	r3, #14336
+  45 000c 4360     		str	r3, [r0, #4]
+  45:../../CM7/Core/Src/wwdg.c ****   hwwdg1.Init.Window = 104;  /* 0x68: too early a refresh also resets */
+  46              		.loc 1 45 3 is_stmt 1 view .LVU5
+  47              		.loc 1 45 22 is_stmt 0 view .LVU6
+  48 000e 6823     		movs	r3, #104
+  49 0010 8360     		str	r3, [r0, #8]
+  46:../../CM7/Core/Src/wwdg.c ****   hwwdg1.Init.Counter = 127; /* 0x7F */
+  50              		.loc 1 46 3 is_stmt 1 view .LVU7
+  51              		.loc 1 46 23 is_stmt 0 view .LVU8
+  52 0012 7F23     		movs	r3, #127
+  53 0014 C360     		str	r3, [r0, #12]
+  47:../../CM7/Core/Src/wwdg.c ****   hwwdg1.Init.EWIMode = WWDG_EWI_DISABLE;
+  54              		.loc 1 47 3 is_stmt 1 view .LVU9
+  55              		.loc 1 47 23 is_stmt 0 view .LVU10
+  56 0016 0023     		movs	r3, #0
+  57 0018 0361     		str	r3, [r0, #16]
+  48:../../CM7/Core/Src/wwdg.c ****   if (HAL_WWDG_Init(&hwwdg1) != HAL_OK)
+  58              		.loc 1 48 3 is_stmt 1 view .LVU11
+  59              		.loc 1 48 7 is_stmt 0 view .LVU12
+  60 001a FFF7FEFF 		bl	HAL_WWDG_Init
+  61              	.LVL0:
+  62              		.loc 1 48 6 discriminator 1 view .LVU13
+  63 001e 28B9     		cbnz	r0, .L4
+  64              	.L2:
+  49:../../CM7/Core/Src/wwdg.c ****   {
+  50:../../CM7/Core/Src/wwdg.c ****     Error_Handler();
+  51:../../CM7/Core/Src/wwdg.c ****   }
+ARM GAS  C:\Users\31414\AppData\Local\Temp\cc75cheM.s 			page 3
+
+
+  52:../../CM7/Core/Src/wwdg.c ****   /* USER CODE BEGIN WWDG1_Init 2 */
+  53:../../CM7/Core/Src/wwdg.c ****   __HAL_DBGMCU_FREEZE_WWDG1(); /* freeze WWDG when the core is halted by the debugger */
+  65              		.loc 1 53 3 is_stmt 1 view .LVU14
+  66 0020 064A     		ldr	r2, .L5+8
+  67 0022 536B     		ldr	r3, [r2, #52]
+  68 0024 43F04003 		orr	r3, r3, #64
+  69 0028 5363     		str	r3, [r2, #52]
+  54:../../CM7/Core/Src/wwdg.c **** 
+  55:../../CM7/Core/Src/wwdg.c ****   /* USER CODE END WWDG1_Init 2 */
+  56:../../CM7/Core/Src/wwdg.c **** 
+  57:../../CM7/Core/Src/wwdg.c **** }
+  70              		.loc 1 57 1 is_stmt 0 view .LVU15
+  71 002a 08BD     		pop	{r3, pc}
+  72              	.L4:
+  50:../../CM7/Core/Src/wwdg.c ****   }
+  73              		.loc 1 50 5 is_stmt 1 view .LVU16
+  74 002c FFF7FEFF 		bl	Error_Handler
+  75              	.LVL1:
+  76 0030 F6E7     		b	.L2
+  77              	.L6:
+  78 0032 00BF     		.align	2
+  79              	.L5:
+  80 0034 00000000 		.word	hwwdg1
+  81 0038 00300050 		.word	1342189568
+  82 003c 0010005C 		.word	1543507968
+  83              		.cfi_endproc
+  84              	.LFE146:
+  86              		.section	.text.HAL_WWDG_MspInit,"ax",%progbits
+  87              		.align	1
+  88              		.global	HAL_WWDG_MspInit
+  89              		.syntax unified
+  90              		.thumb
+  91              		.thumb_func
+  93              	HAL_WWDG_MspInit:
+  94              	.LVL2:
+  95              	.LFB147:
+  58:../../CM7/Core/Src/wwdg.c **** 
+  59:../../CM7/Core/Src/wwdg.c **** void HAL_WWDG_MspInit(WWDG_HandleTypeDef* wwdgHandle)
+  60:../../CM7/Core/Src/wwdg.c **** {
+  96              		.loc 1 60 1 view -0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 8
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+  61:../../CM7/Core/Src/wwdg.c **** 
+  62:../../CM7/Core/Src/wwdg.c ****   if(wwdgHandle->Instance==WWDG1)
+ 100              		.loc 1 62 3 view .LVU18
+ 101              		.loc 1 62 16 is_stmt 0 view .LVU19
+ 102 0000 0268     		ldr	r2, [r0]
+ 103              		.loc 1 62 5 view .LVU20
+ 104 0002 0C4B     		ldr	r3, .L14
+ 105 0004 9A42     		cmp	r2, r3
+ 106 0006 00D0     		beq	.L13
+ 107 0008 7047     		bx	lr
+ 108              	.L13:
+  60:../../CM7/Core/Src/wwdg.c **** 
+ 109              		.loc 1 60 1 view .LVU21
+ 110 000a 00B5     		push	{lr}
+ARM GAS  C:\Users\31414\AppData\Local\Temp\cc75cheM.s 			page 4
+
+
+ 111              	.LCFI1:
+ 112              		.cfi_def_cfa_offset 4
+ 113              		.cfi_offset 14, -4
+ 114 000c 83B0     		sub	sp, sp, #12
+ 115              	.LCFI2:
+ 116              		.cfi_def_cfa_offset 16
+  63:../../CM7/Core/Src/wwdg.c ****   {
+  64:../../CM7/Core/Src/wwdg.c ****   /* USER CODE BEGIN WWDG1_MspInit 0 */
+  65:../../CM7/Core/Src/wwdg.c **** 
+  66:../../CM7/Core/Src/wwdg.c ****   /* USER CODE END WWDG1_MspInit 0 */
+  67:../../CM7/Core/Src/wwdg.c ****     /* WWDG1 clock enable */
+  68:../../CM7/Core/Src/wwdg.c ****     HAL_RCCEx_WWDGxSysResetConfig(RCC_WWDG1);
+ 117              		.loc 1 68 5 is_stmt 1 view .LVU22
+ 118 000e 0120     		movs	r0, #1
+ 119              	.LVL3:
+ 120              		.loc 1 68 5 is_stmt 0 view .LVU23
+ 121 0010 FFF7FEFF 		bl	HAL_RCCEx_WWDGxSysResetConfig
+ 122              	.LVL4:
+  69:../../CM7/Core/Src/wwdg.c ****     __HAL_RCC_WWDG1_CLK_ENABLE();
+ 123              		.loc 1 69 5 is_stmt 1 view .LVU24
+ 124              	.LBB2:
+ 125              		.loc 1 69 5 view .LVU25
+ 126              		.loc 1 69 5 view .LVU26
+ 127 0014 084B     		ldr	r3, .L14+4
+ 128 0016 D3F8E420 		ldr	r2, [r3, #228]
+ 129 001a 42F04002 		orr	r2, r2, #64
+ 130 001e C3F8E420 		str	r2, [r3, #228]
+ 131              		.loc 1 69 5 view .LVU27
+ 132 0022 D3F8E430 		ldr	r3, [r3, #228]
+ 133 0026 03F04003 		and	r3, r3, #64
+ 134 002a 0193     		str	r3, [sp, #4]
+ 135              		.loc 1 69 5 view .LVU28
+ 136 002c 019B     		ldr	r3, [sp, #4]
+ 137              	.LBE2:
+ 138              		.loc 1 69 5 discriminator 1 view .LVU29
+  70:../../CM7/Core/Src/wwdg.c ****   /* USER CODE BEGIN WWDG1_MspInit 1 */
+  71:../../CM7/Core/Src/wwdg.c **** 
+  72:../../CM7/Core/Src/wwdg.c ****   /* USER CODE END WWDG1_MspInit 1 */
+  73:../../CM7/Core/Src/wwdg.c ****   }
+  74:../../CM7/Core/Src/wwdg.c **** }
+ 139              		.loc 1 74 1 is_stmt 0 view .LVU30
+ 140 002e 03B0     		add	sp, sp, #12
+ 141              	.LCFI3:
+ 142              		.cfi_def_cfa_offset 4
+ 143              		@ sp needed
+ 144 0030 5DF804FB 		ldr	pc, [sp], #4
+ 145              	.L15:
+ 146              		.align	2
+ 147              	.L14:
+ 148 0034 00300050 		.word	1342189568
+ 149 0038 00440258 		.word	1476543488
+ 150              		.cfi_endproc
+ 151              	.LFE147:
+ 153              		.global	hwwdg1
+ 154              		.section	.bss.hwwdg1,"aw",%nobits
+ 155              		.align	2
+ 158              	hwwdg1:
+ARM GAS  C:\Users\31414\AppData\Local\Temp\cc75cheM.s 			page 5
+
+
+ 159 0000 00000000 		.space	20
+ 159      00000000 
+ 159      00000000 
+ 159      00000000 
+ 159      00000000 
+ 160              		.text
+ 161              	.Letext0:
+ 162              		.file 2 "D:/Tools/makefile/xpack-arm-none-eabi-gcc-13.3.1-1.1-win32-x64/xpack-arm-none-eabi-gcc-13
+ 163              		.file 3 "D:/Tools/makefile/xpack-arm-none-eabi-gcc-13.3.1-1.1-win32-x64/xpack-arm-none-eabi-gcc-13
+ 164              		.file 4 "../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h747xx.h"
+ 165              		.file 5 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h"
+ 166              		.file 6 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h"
+ 167              		.file 7 "../../CM7/Core/Inc/wwdg.h"
+ 168              		.file 8 "../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc_ex.h"
+ 169              		.file 9 "../../CM7/Core/Inc/main.h"
+ARM GAS  C:\Users\31414\AppData\Local\Temp\cc75cheM.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 wwdg.c
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:20     .text.MX_WWDG1_Init:00000000 $t
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:26     .text.MX_WWDG1_Init:00000000 MX_WWDG1_Init
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:80     .text.MX_WWDG1_Init:00000034 $d
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:158    .bss.hwwdg1:00000000 hwwdg1
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:87     .text.HAL_WWDG_MspInit:00000000 $t
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:93     .text.HAL_WWDG_MspInit:00000000 HAL_WWDG_MspInit
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:148    .text.HAL_WWDG_MspInit:00000034 $d
+C:\Users\31414\AppData\Local\Temp\cc75cheM.s:155    .bss.hwwdg1:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_WWDG_Init
+Error_Handler
+HAL_RCCEx_WWDGxSysResetConfig

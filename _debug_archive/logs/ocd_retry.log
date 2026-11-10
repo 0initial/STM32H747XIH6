@@ -1,0 +1,360 @@
+===== attempt 1 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 2 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 3 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 4 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 5 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 6 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 7 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 8 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 9 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 10 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 11 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 12 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 13 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 14 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 15 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 16 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 17 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 18 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 19 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
+===== attempt 20 =====
+openocd.exe : xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+所在位置 行:4 字符: 10
++   $out = & $ocd -f interface/cmsis-dap.cfg -f target/stm32h7x_dual_ba ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xPack Open On-C...25-10-04-22:44):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Warn : DEPRECATED: auto-selecting transport "swd". Use 'transport select swd' to suppress this message.
+adapter speed: 1800 kHz
+none separate
+1
+Error: unable to find a matching CMSIS-DAP device
+
+
