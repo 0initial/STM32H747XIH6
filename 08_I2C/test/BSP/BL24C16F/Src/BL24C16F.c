@@ -32,7 +32,7 @@
  */
 static uint16_t BL24C16F_GetDevAddr(uint16_t addr)
 {
-  return (uinit16_t)(BL24C16F_DEV_ADDR_BASE | (((addr >> 8) & 0x07U) << 1U));
+  return (uint16_t)(BL24C16F_DEV_ADDR_BASE | (((addr >> 8) & 0x07U) << 1U));
 }
 
 /**
@@ -54,7 +54,7 @@ static HAL_StatusTypeDef BL24C16F_WaitWriteCycle(BL24C16F_HandleTypeDef *hdev, u
   {
     if ((HAL_GetTick() - tickstart) > hdev->timeout)
     {
-      HAL_TIMEOUT;
+      return HAL_TIMEOUT;
     }
   }
 
@@ -120,4 +120,109 @@ HAL_StatusTypeDef BL24C16F_WriteByte(BL24C16F_HandleTypeDef *hdev, uint16_t addr
   return BL24C16F_Write(hdev, addr, &data, 1U);
 }
 
+/**
+ * @brief  从指定地址连续读取多个字节
+ *
+ * @note   跨 256 字节地址块时自动分段：
+ *         每段内设备地址相同，字地址从 A7~A0 递增；
+ *         进入下一块时设备地址需切换（如 0xA0 → 0xA2）
+ */
+HAL_StatusTypeDef BL24C16F_Read(BL24C16F_HandleTypeDef *hdev, uint16_t addr, uint8_t *data, uint16_t len)
+{
+  HAL_StatusTypeDef status;
 
+  if ((hdev == NULL) || (hdev->hi2c == NULL) || (data == NULL))
+  {
+    return HAL_ERROR;
+  }
+
+  status = BL24C16F_CheckParams(addr, len);
+  if (status != HAL_OK)
+  {
+    return status;
+  }
+
+  while (len > 0U)
+  {
+    // 当前地址块内剩余可读字节数（防止跨 256 字节块）
+    uint16_t block_remain = BL24C16F_BLOCK_SIZE - (addr & (BL24C16F_BLOCK_SIZE - 1U));
+    uint16_t chunk = (len < block_remain) ? len : block_remain;
+    uint16_t dev_addr = BL24C16F_GetDevAddr(addr);
+
+    status = HAL_I2C_Mem_Read(hdev->hi2c,
+                              dev_addr,                 // 8位设备地址
+                              (uint16_t)(addr & 0xFFU), // 8位字地址 A7 - A0
+                              I2C_MEMADD_SIZE_8BIT,
+                              data,
+                              chunk, hdev->timeout);
+
+    if (status != HAL_OK)
+    {
+      return status;
+    }
+
+    addr += chunk;
+    data += chunk;
+    len -= chunk;
+  }
+
+  return HAL_OK;
+}
+
+/**
+ * @brief  向指定地址连续写入多个字节
+ *
+ * @note   自动处理两种边界：
+ *         1. 页边界（16 字节）：单次页写不可跨页，超出部分拆分到下一页
+ *         2. 每次写入后等待内部写周期完成
+ */
+HAL_StatusTypeDef BL24C16F_Write(BL24C16F_HandleTypeDef *hdev, uint16_t addr, const uint8_t *data, uint16_t len)
+{
+  HAL_StatusTypeDef status;
+
+  if ((hdev == NULL) || (hdev->hi2c == NULL) || (data == NULL))
+  {
+    return HAL_ERROR;
+  }
+
+  status = BL24C16F_CheckParams(addr, len);
+  if (status != HAL_OK)
+  {
+    return status;
+  }
+
+  while (len > 0U)
+  {
+    // 当前页内剩余可写字节数（防止跨 16 字节页边界）
+    uint16_t page_offset = addr & (BL24C16F_PAGE_SIZE - 1U);
+    uint16_t page_remain = BL24C16F_PAGE_SIZE - page_offset;
+    uint16_t chunk = (len < page_remain) ? len : page_remain;
+    uint16_t dev_addr = BL24C16F_GetDevAddr(addr);
+
+    status = HAL_I2C_Mem_Write(hdev->hi2c,
+                               dev_addr,                 // 8位设备地址
+                               (uint16_t)(addr & 0xFFU), // 8位字地址 A7 - A0
+                               I2C_MEMADD_SIZE_8BIT,
+                               (uint8_t *)data,
+                               chunk,
+                               hdev->timeout);
+
+    if (status != HAL_OK)
+    {
+      return status;
+    }
+
+    // 等待本次写入的内部写周期结束
+    status = BL24C16F_WaitWriteCycle(hdev, addr);
+    if (status != HAL_OK)
+    {
+      return status;
+    }
+
+    addr += chunk;
+    data += chunk;
+    len -= chunk;
+  }
+
+  return HAL_OK;
+}

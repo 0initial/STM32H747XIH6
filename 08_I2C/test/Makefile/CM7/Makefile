@@ -64,9 +64,6 @@ C_SOURCES =  \
 ../../CM7/Core/Src/usart.c \
 ../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c \
 ../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c \
-../../CM7/Core/Src/rtc.c \
-../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc.c \
-../../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc_ex.c \
 ../../CM7/Core/Src/i2c.c \
 ../../BSP/BL24C16F/Src/BL24C16F.c \
 

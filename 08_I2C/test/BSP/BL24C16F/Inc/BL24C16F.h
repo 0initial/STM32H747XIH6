@@ -70,7 +70,68 @@ typedef struct
   uint32_t timeout;          /**< I2C 操作超时时间（ms） */
 } BL24C16F_HandleTypeDef;
 
+/* -------------------------------------------------------------------------- */
+/*                              对外接口函数                                   */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * @brief  初始化 EEPROM 驱动句柄
+ * @param  hdev  驱动句柄指针
+ * @param  hi2c  已初始化的 I2C 外设句柄
+ */
+void BL24C16F_Init(BL24C16F_HandleTypeDef *hdev, I2C_HandleTypeDef *hi2c);
+
+/**
+ * @brief  检测 EEPROM 是否就绪（应答检测）
+ * @param  hdev  驱动句柄指针
+ * @retval HAL_OK     设备应答正常
+ * @retval HAL_ERROR  参数无效或设备无应答
+ * @retval HAL_TIMEOUT 超时
+ */
+HAL_StatusTypeDef BL24C16F_IsReady(BL24C16F_HandleTypeDef *hdev);
+
+/**
+ * @brief  从指定地址读取多个字节
+ * @param  hdev  驱动句柄指针
+ * @param  addr  起始存储地址（0x0000 ~ 0x07FF）
+ * @param  data  接收数据缓冲区
+ * @param  len   读取字节数
+ * @retval HAL_OK     读取成功
+ * @retval HAL_ERROR  参数错误或地址越界
+ * @retval HAL_TIMEOUT I2C 超时
+ */
+HAL_StatusTypeDef BL24C16F_Read(BL24C16F_HandleTypeDef *hdev, uint16_t addr, uint8_t *data, uint16_t len);
+
+/**
+ * @brief  向指定地址写入多个字节（自动按页拆分并等待写周期）
+ * @param  hdev  驱动句柄指针
+ * @param  addr  起始存储地址（0x0000 ~ 0x07FF）
+ * @param  data  待写入数据缓冲区
+ * @param  len   写入字节数
+ * @retval HAL_OK     写入成功
+ * @retval HAL_ERROR  参数错误或地址越界
+ * @retval HAL_TIMEOUT I2C 超时或写周期等待超时
+ */
+HAL_StatusTypeDef BL24C16F_Write(BL24C16F_HandleTypeDef *hdev, uint16_t addr, const uint8_t *data, uint16_t len);
+
+/**
+ * @brief  向指定地址写入单字节
+ * @param  hdev  驱动句柄指针
+ * @param  addr  存储地址
+ * @param  data  待写入的字节
+ */
+HAL_StatusTypeDef BL24C16F_WriteByte(BL24C16F_HandleTypeDef *hdev, uint16_t addr, uint8_t data);
+
+/**
+ * @brief  从指定地址读取单字节
+ * @param  hdev  驱动句柄指针
+ * @param  addr  存储地址
+ * @param  data  接收字节的指针
+ */
+HAL_StatusTypeDef BL24C16F_ReadByte(BL24C16F_HandleTypeDef *hdev, uint16_t addr, uint8_t *data);
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif /* BL24C16F_H */
-
-
-
