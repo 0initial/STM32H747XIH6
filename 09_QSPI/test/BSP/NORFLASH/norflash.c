@@ -42,19 +42,19 @@ static uint16_t norflash_type_from_jedec(uint32_t jedec)
     }
 
     /* »ª°î W25Q ÏµÁÐ */
-    if (mf != 0xEFU)
+    if (mf == 0xEFU)
     {
-        return 0;
+        switch (cap)
+        {
+            case 0x19U: return W25Q256;
+            case 0x18U: return W25Q256;
+            case 0x17U: return W25Q128;
+            case 0x16U: return W25Q64;
+            default:    return 0;
+        }
     }
 
-    switch (cap)
-    {
-        case 0x19U: return W25Q256;
-        case 0x18U: return W25Q256;
-        case 0x17U: return W25Q128;
-        case 0x16U: return W25Q64;
-        default:    return 0;
-    }
+    return 0;
 }
 
 /**
