@@ -75,7 +75,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  bsp_cache_enable(); // 打开指令/数据Cache，提升访问速度（避免SDRAM访问性能过低）
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
   int32_t timeout;
@@ -131,6 +131,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
+  mpu_memory_protection(); // 配置MPU：把SDRAM这段外部存储设置为合适的Cache策略（避免DCache导致读回不一致）
   MX_FMC_Init();
   /* USER CODE BEGIN 2 */
   sdram_init();
